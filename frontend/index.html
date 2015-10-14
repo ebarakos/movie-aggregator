@@ -1,0 +1,19 @@
+<html ng-app="MovieRama">
+<head lang="en">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<h1>MovieRama</h1>
+<div ng-controller="mainController">
+	<input ng-model="query"/>
+	<button ng-click="search()" ng-disabled="loading">Search</button>
+	<button ng-click="now_playing()" ng-disabled="loading">Now Playing</button>
+	<div ng-repeat="json in json" ng-hide="loading">
+		<p><b>Title: {{json.title}}</b></p>
+		<p>Year: {{json.year}}</p>
+		<p>Description: {{json.description}}</p>
+		<p>Number Of Reviews: {{json.numReviews}}</p>
+		<p>Actors: {{json.actors}}</p>	
+	</div>
+	<div ng-show="loading"> Loading... </div>
+</html>
